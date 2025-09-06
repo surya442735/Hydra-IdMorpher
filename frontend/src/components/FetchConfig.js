@@ -40,5 +40,4 @@ function FetchConfig() {
         </div>
     );
 }
-
 export default FetchConfig;
