@@ -1,26 +1,12 @@
-// --- Imports ---
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Configuration = require("./models/configurationModel");
-
 const app = express();
 
-// --- Middleware ---
 app.use(cors());
 app.use(express.json());
-
-// ADDED: Simple request logger middleware for debugging
-// app.use((req, res, next) => {
-//   console.log(
-//     `📥 [${new Date().toISOString()}] Received ${req.method} request for ${
-//       req.originalUrl
-//     }`
-//   );
-//   next();
-// });
-
 const PORT = process.env.PORT || 8080;
 const MONGO_URI = process.env.MONGO_URI;
 
