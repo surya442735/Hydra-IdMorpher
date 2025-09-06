@@ -1,4 +1,3 @@
-// components/FetchConfig.js
 import React, { useState } from 'react';
 
 function FetchConfig() {
@@ -11,9 +10,7 @@ function FetchConfig() {
         setError('');
         setData(null);
         try {
-            // Fetch data from your backend GET endpoint [cite: 53]
             const response = await fetch(`http://localhost:8080/api/configurations/${configId}`);
-           
             if (!response.ok) {
                 throw new Error('Configuration not found');
             }
