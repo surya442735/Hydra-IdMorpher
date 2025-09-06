@@ -53,7 +53,8 @@ npm install
 
 Create a .env file in the backend directory. This file will store your secret database connection string. Copy the contents of .env.example (if provided) or add the following variables:
 
-# .env file
+.env file
+-
 MONGO_URI="YOUR_MONGODB_CONNECTION_STRING"
 
 PORT=8080
