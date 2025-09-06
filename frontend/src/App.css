@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #00e1ff, 0 0 10px #00e1ff, 0 0 15px #00e1ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #00e1ff, 0 0 20px #00e1ff, 0 0 30px #00e1ff;
+  }
+}
+
+:root {
+  --primary-glow: #00e1ff;
+  --background-start: #0f0c29;
+  --background-mid: #302b63;
+  --background-end: #24243e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0b0;
+  --glass-bg: rgba(36, 36, 62, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.App {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--background-start),
+    var(--background-mid),
+    var(--background-end)
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+.App-header {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  color: white;
+  width: 100%;
+  padding: 25px 20px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.App-header p {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.task-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.task-container h2 {
+  margin-top: 0;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid;
+  border-image-source: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  border-image-slice: 1;
+}
+
+.App-footer {
+  margin-top: auto;
+  padding: 20px;
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+label {
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+textarea {
+  padding: 15px;
+  border: 1px solid var(--glass-border);
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 15px rgba(0, 225, 255, 0.3);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  padding: 15px 25px;
+  background: transparent;
+  color: var(--primary-glow);
+  border: 2px solid var(--primary-glow);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 5px var(--primary-glow);
+}
+
+button:hover {
+  background: var(--primary-glow);
+  color: #111;
+  transform: scale(1.05) translateY(-2px);
+  animation: glow 0.8s infinite alternate;
+}
+
+.result-container {
+  margin-top: 30px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+}
+
+.result-container h3 {
+  margin-top: 0;
+  color: white;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-family: "SF Mono", "Fira Code", "Courier New", monospace;
+}
+
+.message,
+.error-message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid;
+  border-left-width: 5px;
+}
+
+.message {
+  color: #a3ffb4;
+  background-color: rgba(39, 174, 96, 0.15);
+  border-color: rgba(39, 174, 96, 0.5);
+}
+
+.error-message {
+  color: #ffacac;
+  background-color: rgba(192, 57, 43, 0.15);
+  border-color: rgba(192, 57, 43, 0.5);
+}
